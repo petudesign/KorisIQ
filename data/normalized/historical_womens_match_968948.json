@@ -1,0 +1,2763 @@
+{
+  "schema_version": "0.1",
+  "source": {
+    "system": "basketfi_torneopal",
+    "entity": "match",
+    "source_entity_id": "968948",
+    "source_url": "https://koripallo-api.torneopal.net/taso/rest/getMatch?match_id=968948",
+    "ingested_at_utc": "2026-09-15T11:15:57Z",
+    "payload_sha256": "381425c3541a06c537caeec75329eb522d6b9538d5172eafb46e42ed609ab3de",
+    "requested_context": {
+      "competition_id": "huki2526",
+      "category_id": "1",
+      "category_name": "Naisten Korisliiga"
+    }
+  },
+  "competition": {
+    "source_id": "huki2526",
+    "name": "Huippukoripallosarjat 2025-26"
+  },
+  "season": {
+    "source_id": "2025-2026",
+    "name": "2025-2026"
+  },
+  "game": {
+    "source_id": "968948",
+    "match_number": "219",
+    "scheduled_date": "2025-10-01",
+    "scheduled_time": "18:30:00",
+    "timezone": "Europe/Helsinki",
+    "status": "Played",
+    "statistics_level": "normal",
+    "venue": {
+      "source_id": "35",
+      "name": "MLL Areena",
+      "city": "KOUVOLA"
+    },
+    "periods": [
+      {
+        "period": 1,
+        "home_score": 7,
+        "away_score": 18
+      },
+      {
+        "period": 2,
+        "home_score": 18,
+        "away_score": 22
+      },
+      {
+        "period": 3,
+        "home_score": 15,
+        "away_score": 16
+      },
+      {
+        "period": 4,
+        "home_score": 7,
+        "away_score": 14
+      }
+    ],
+    "final_score": {
+      "home": 47,
+      "away": 70
+    }
+  },
+  "teams": [
+    {
+      "source_id": "48083",
+      "name": "Kouvottaret",
+      "home_away": "home",
+      "score": 47
+    },
+    {
+      "source_id": "8",
+      "name": "BC Nokia",
+      "home_away": "away",
+      "score": 70
+    }
+  ],
+  "players": [
+    {
+      "source_player_id": "3399",
+      "source_lineup_id": "2770253",
+      "display_name": "Vähäuski Henriikka",
+      "team_source_id": "48083",
+      "jersey_number": "4",
+      "starter": true,
+      "position": "sent",
+      "minutes": 0,
+      "stats": {
+        "points": 5,
+        "assists": 0,
+        "shots": 0,
+        "blocks": 0,
+        "fouls": 5,
+        "goals": 3
+      },
+      "source_fields": {
+        "birthyear": "2002",
+        "raw_playing_time_min": 0
+      }
+    },
+    {
+      "source_player_id": "2008",
+      "source_lineup_id": "2770254",
+      "display_name": "Lampinen Lila",
+      "team_source_id": "48083",
+      "jersey_number": "5",
+      "starter": false,
+      "position": "taka",
+      "minutes": 0,
+      "stats": {
+        "points": 4,
+        "assists": 0,
+        "shots": 0,
+        "blocks": 0,
+        "fouls": 1,
+        "goals": 2
+      },
+      "source_fields": {
+        "birthyear": "2009",
+        "raw_playing_time_min": 0
+      }
+    },
+    {
+      "source_player_id": "40426",
+      "source_lineup_id": "2770255",
+      "display_name": "Jones Jasmina",
+      "team_source_id": "48083",
+      "jersey_number": "11",
+      "starter": true,
+      "position": "laita",
+      "minutes": 0,
+      "stats": {
+        "points": 11,
+        "assists": 0,
+        "shots": 0,
+        "blocks": 0,
+        "fouls": 4,
+        "goals": 5
+      },
+      "source_fields": {
+        "birthyear": "1999",
+        "raw_playing_time_min": 0
+      }
+    },
+    {
+      "source_player_id": "12442",
+      "source_lineup_id": "2770256",
+      "display_name": "Laurema Enni",
+      "team_source_id": "48083",
+      "jersey_number": "12",
+      "starter": false,
+      "position": "laita",
+      "minutes": 0,
+      "stats": {
+        "points": 0,
+        "assists": 0,
+        "shots": 0,
+        "blocks": 0,
+        "fouls": 0,
+        "goals": 0
+      },
+      "source_fields": {
+        "birthyear": "2007",
+        "raw_playing_time_min": 0
+      }
+    },
+    {
+      "source_player_id": "3326",
+      "source_lineup_id": "2770258",
+      "display_name": "Frimodig Roosa",
+      "team_source_id": "48083",
+      "jersey_number": "15",
+      "starter": true,
+      "position": "taka",
+      "minutes": 0,
+      "stats": {
+        "points": 3,
+        "assists": 0,
+        "shots": 0,
+        "blocks": 0,
+        "fouls": 3,
+        "goals": 1
+      },
+      "source_fields": {
+        "birthyear": "1991",
+        "raw_playing_time_min": 0
+      }
+    },
+    {
+      "source_player_id": "8071",
+      "source_lineup_id": "2770259",
+      "display_name": "Räty Johanna",
+      "team_source_id": "48083",
+      "jersey_number": "20",
+      "starter": true,
+      "position": "taka",
+      "minutes": 0,
+      "stats": {
+        "points": 5,
+        "assists": 0,
+        "shots": 0,
+        "blocks": 0,
+        "fouls": 2,
+        "goals": 2
+      },
+      "source_fields": {
+        "birthyear": "2001",
+        "raw_playing_time_min": 0
+      }
+    },
+    {
+      "source_player_id": "10588",
+      "source_lineup_id": "2770261",
+      "display_name": "Heikkilä Elli",
+      "team_source_id": "48083",
+      "jersey_number": "23",
+      "starter": false,
+      "position": "sentteri",
+      "minutes": 0,
+      "stats": {
+        "points": 5,
+        "assists": 0,
+        "shots": 0,
+        "blocks": 0,
+        "fouls": 3,
+        "goals": 4
+      },
+      "source_fields": {
+        "birthyear": "2002",
+        "raw_playing_time_min": 0
+      }
+    },
+    {
+      "source_player_id": "12622",
+      "source_lineup_id": "2770263",
+      "display_name": "Lampinen Helmi",
+      "team_source_id": "48083",
+      "jersey_number": "35",
+      "starter": false,
+      "position": "taka",
+      "minutes": 0,
+      "stats": {
+        "points": 0,
+        "assists": 0,
+        "shots": 0,
+        "blocks": 0,
+        "fouls": 2,
+        "goals": 0
+      },
+      "source_fields": {
+        "birthyear": "2007",
+        "raw_playing_time_min": 0
+      }
+    },
+    {
+      "source_player_id": "61526",
+      "source_lineup_id": "2770264",
+      "display_name": "Brown Raiana",
+      "team_source_id": "48083",
+      "jersey_number": "44",
+      "starter": true,
+      "position": "sentteri",
+      "minutes": 0,
+      "stats": {
+        "points": 14,
+        "assists": 0,
+        "shots": 0,
+        "blocks": 0,
+        "fouls": 2,
+        "goals": 9
+      },
+      "source_fields": {
+        "birthyear": "2001",
+        "raw_playing_time_min": 0
+      }
+    },
+    {
+      "source_player_id": "60602",
+      "source_lineup_id": "2770265",
+      "display_name": "Drake Unique",
+      "team_source_id": "8",
+      "jersey_number": "44",
+      "starter": true,
+      "position": "taka",
+      "minutes": 0,
+      "stats": {
+        "points": 11,
+        "assists": 0,
+        "shots": 0,
+        "blocks": 0,
+        "fouls": 1,
+        "goals": 6
+      },
+      "source_fields": {
+        "birthyear": "2000",
+        "raw_playing_time_min": 0
+      }
+    },
+    {
+      "source_player_id": "3355",
+      "source_lineup_id": "2770267",
+      "display_name": "Salmi Ninni",
+      "team_source_id": "8",
+      "jersey_number": "5",
+      "starter": true,
+      "position": "lait",
+      "minutes": 0,
+      "stats": {
+        "points": 2,
+        "assists": 0,
+        "shots": 0,
+        "blocks": 0,
+        "fouls": 1,
+        "goals": 1
+      },
+      "source_fields": {
+        "birthyear": "1996",
+        "raw_playing_time_min": 0
+      }
+    },
+    {
+      "source_player_id": "14317",
+      "source_lineup_id": "2770268",
+      "display_name": "Seppä Eevi",
+      "team_source_id": "8",
+      "jersey_number": "7",
+      "starter": true,
+      "position": "lait",
+      "minutes": 0,
+      "stats": {
+        "points": 4,
+        "assists": 0,
+        "shots": 0,
+        "blocks": 0,
+        "fouls": 1,
+        "goals": 3
+      },
+      "source_fields": {
+        "birthyear": "2007",
+        "raw_playing_time_min": 0
+      }
+    },
+    {
+      "source_player_id": "11869",
+      "source_lineup_id": "2770269",
+      "display_name": "Viitanen Mila",
+      "team_source_id": "8",
+      "jersey_number": "9",
+      "starter": false,
+      "position": "lait",
+      "minutes": 0,
+      "stats": {
+        "points": 2,
+        "assists": 0,
+        "shots": 0,
+        "blocks": 0,
+        "fouls": 2,
+        "goals": 1
+      },
+      "source_fields": {
+        "birthyear": "2004",
+        "raw_playing_time_min": 0
+      }
+    },
+    {
+      "source_player_id": "10834",
+      "source_lineup_id": "2770271",
+      "display_name": "Nurminen Anni",
+      "team_source_id": "8",
+      "jersey_number": "11",
+      "starter": true,
+      "position": "taka",
+      "minutes": 0,
+      "stats": {
+        "points": 7,
+        "assists": 0,
+        "shots": 0,
+        "blocks": 0,
+        "fouls": 1,
+        "goals": 3
+      },
+      "source_fields": {
+        "birthyear": "2004",
+        "raw_playing_time_min": 0
+      }
+    },
+    {
+      "source_player_id": "10791",
+      "source_lineup_id": "2770272",
+      "display_name": "Niskanen Viivi",
+      "team_source_id": "8",
+      "jersey_number": "15",
+      "starter": false,
+      "position": "taka",
+      "minutes": 0,
+      "stats": {
+        "points": 1,
+        "assists": 0,
+        "shots": 0,
+        "blocks": 0,
+        "fouls": 4,
+        "goals": 1
+      },
+      "source_fields": {
+        "birthyear": "2004",
+        "raw_playing_time_min": 0
+      }
+    },
+    {
+      "source_player_id": "9603",
+      "source_lineup_id": "2770273",
+      "display_name": "Timo Tuulia",
+      "team_source_id": "8",
+      "jersey_number": "16",
+      "starter": false,
+      "position": "lait",
+      "minutes": 0,
+      "stats": {
+        "points": 9,
+        "assists": 0,
+        "shots": 0,
+        "blocks": 0,
+        "fouls": 2,
+        "goals": 5
+      },
+      "source_fields": {
+        "birthyear": "1997",
+        "raw_playing_time_min": 0
+      }
+    },
+    {
+      "source_player_id": "60601",
+      "source_lineup_id": "2770275",
+      "display_name": "Lawrence Laila",
+      "team_source_id": "8",
+      "jersey_number": "42",
+      "starter": true,
+      "position": "lait",
+      "minutes": 0,
+      "stats": {
+        "points": 20,
+        "assists": 0,
+        "shots": 0,
+        "blocks": 0,
+        "fouls": 3,
+        "goals": 12
+      },
+      "source_fields": {
+        "birthyear": "2003",
+        "raw_playing_time_min": 0
+      }
+    },
+    {
+      "source_player_id": "13024",
+      "source_lineup_id": "2770276",
+      "display_name": "Etu-Seppälä Mona",
+      "team_source_id": "8",
+      "jersey_number": "68",
+      "starter": false,
+      "position": "taka",
+      "minutes": 0,
+      "stats": {
+        "points": 2,
+        "assists": 0,
+        "shots": 0,
+        "blocks": 0,
+        "fouls": 1,
+        "goals": 1
+      },
+      "source_fields": {
+        "birthyear": "2007",
+        "raw_playing_time_min": 0
+      }
+    },
+    {
+      "source_player_id": "11262",
+      "source_lineup_id": "2770277",
+      "display_name": "Patrikainen Venla",
+      "team_source_id": "8",
+      "jersey_number": "73",
+      "starter": false,
+      "position": "taka",
+      "minutes": 0,
+      "stats": {
+        "points": 12,
+        "assists": 0,
+        "shots": 0,
+        "blocks": 0,
+        "fouls": 3,
+        "goals": 6
+      },
+      "source_fields": {
+        "birthyear": "2006",
+        "raw_playing_time_min": 0
+      }
+    }
+  ],
+  "events": [
+    {
+      "source_event_id": "10263358",
+      "period": 0,
+      "clock": {
+        "display": "0:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Tuomarisaapui (Tuomari)",
+      "source_code": "tuomarisaapui",
+      "description": "tuomari",
+      "player_source_id": null,
+      "team_source_id": "0",
+      "score_after": {
+        "home": 0,
+        "away": 0
+      }
+    },
+    {
+      "source_event_id": "10263359",
+      "period": 0,
+      "clock": {
+        "display": "0:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Tuomarisaapui (Avustava1)",
+      "source_code": "tuomarisaapui",
+      "description": "avustava1",
+      "player_source_id": null,
+      "team_source_id": "0",
+      "score_after": {
+        "home": 0,
+        "away": 0
+      }
+    },
+    {
+      "source_event_id": "10263360",
+      "period": 0,
+      "clock": {
+        "display": "0:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Tuomarisaapui (Avustava2)",
+      "source_code": "tuomarisaapui",
+      "description": "avustava2",
+      "player_source_id": null,
+      "team_source_id": "0",
+      "score_after": {
+        "home": 0,
+        "away": 0
+      }
+    },
+    {
+      "source_event_id": "10261317",
+      "period": 1,
+      "clock": {
+        "display": "0:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Vaihdajakso",
+      "source_code": "vaihdajakso",
+      "description": null,
+      "player_source_id": null,
+      "team_source_id": "0",
+      "score_after": {
+        "home": 0,
+        "away": 0
+      }
+    },
+    {
+      "source_event_id": "10261374",
+      "period": 1,
+      "clock": {
+        "display": "0:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (2 0-2)",
+      "source_code": "maali",
+      "description": "2 0-2",
+      "player_source_id": "60601",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "source_event_id": "10261392",
+      "period": 1,
+      "clock": {
+        "display": "0:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Virhe (1)",
+      "source_code": "virhe",
+      "description": "1",
+      "player_source_id": "40426",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "source_event_id": "10261408",
+      "period": 1,
+      "clock": {
+        "display": "0:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Virhe (2)",
+      "source_code": "virhe",
+      "description": "2",
+      "player_source_id": "8071",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "source_event_id": "10261416",
+      "period": 1,
+      "clock": {
+        "display": "0:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (2 0-4)",
+      "source_code": "maali",
+      "description": "2 0-4",
+      "player_source_id": "60601",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 0,
+        "away": 4
+      }
+    },
+    {
+      "source_event_id": "10261446",
+      "period": 1,
+      "clock": {
+        "display": "0:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (2 0-6)",
+      "source_code": "maali",
+      "description": "2 0-6",
+      "player_source_id": "60602",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 0,
+        "away": 6
+      }
+    },
+    {
+      "source_event_id": "10261465",
+      "period": 1,
+      "clock": {
+        "display": "0:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Virhe (3)",
+      "source_code": "virhe",
+      "description": "3",
+      "player_source_id": "3399",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 0,
+        "away": 3
+      }
+    },
+    {
+      "source_event_id": "10261467",
+      "period": 1,
+      "clock": {
+        "display": "0:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (2 0-8)",
+      "source_code": "maali",
+      "description": "2 0-8",
+      "player_source_id": "60601",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 0,
+        "away": 8
+      }
+    },
+    {
+      "source_event_id": "10261469",
+      "period": 1,
+      "clock": {
+        "display": "3:00",
+        "minute": 3,
+        "second": 180
+      },
+      "event_type": "time-out (Aikalisä)",
+      "source_code": "aikalisa",
+      "description": "Aikalisä",
+      "player_source_id": "4",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 0,
+        "away": 4
+      }
+    },
+    {
+      "source_event_id": "10261487",
+      "period": 1,
+      "clock": {
+        "display": "0:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (1 0-9)",
+      "source_code": "maali",
+      "description": "1 0-9",
+      "player_source_id": "60601",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 0,
+        "away": 9
+      }
+    },
+    {
+      "source_event_id": "10261517",
+      "period": 1,
+      "clock": {
+        "display": "0:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (3 3-9)",
+      "source_code": "maali",
+      "description": "3 3-9",
+      "player_source_id": "40426",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 3,
+        "away": 9
+      }
+    },
+    {
+      "source_event_id": "10261566",
+      "period": 1,
+      "clock": {
+        "display": "0:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (3 3-12)",
+      "source_code": "maali",
+      "description": "3 3-12",
+      "player_source_id": "10834",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 3,
+        "away": 12
+      }
+    },
+    {
+      "source_event_id": "10261576",
+      "period": 1,
+      "clock": {
+        "display": "0:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Virhe (1)",
+      "source_code": "virhe",
+      "description": "1",
+      "player_source_id": "11869",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 1,
+        "away": 6
+      }
+    },
+    {
+      "source_event_id": "10261579",
+      "period": 1,
+      "clock": {
+        "display": "0:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (2 5-12)",
+      "source_code": "maali",
+      "description": "2 5-12",
+      "player_source_id": "2008",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 5,
+        "away": 12
+      }
+    },
+    {
+      "source_event_id": "10261609",
+      "period": 1,
+      "clock": {
+        "display": "0:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Virhe (2)",
+      "source_code": "virhe",
+      "description": "2",
+      "player_source_id": "11262",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 2,
+        "away": 6
+      }
+    },
+    {
+      "source_event_id": "10261615",
+      "period": 1,
+      "clock": {
+        "display": "0:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (2 5-14)",
+      "source_code": "maali",
+      "description": "2 5-14",
+      "player_source_id": "11262",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 5,
+        "away": 14
+      }
+    },
+    {
+      "source_event_id": "10261640",
+      "period": 1,
+      "clock": {
+        "display": "0:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (2 5-16)",
+      "source_code": "maali",
+      "description": "2 5-16",
+      "player_source_id": "11262",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 5,
+        "away": 16
+      }
+    },
+    {
+      "source_event_id": "10261654",
+      "period": 1,
+      "clock": {
+        "display": "0:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Virhe (4)",
+      "source_code": "virhe",
+      "description": "4",
+      "player_source_id": "3399",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 2,
+        "away": 8
+      }
+    },
+    {
+      "source_event_id": "10261666",
+      "period": 1,
+      "clock": {
+        "display": "0:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (2 5-18)",
+      "source_code": "maali",
+      "description": "2 5-18",
+      "player_source_id": "9603",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 5,
+        "away": 18
+      }
+    },
+    {
+      "source_event_id": "10261675",
+      "period": 1,
+      "clock": {
+        "display": "0:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Virhe (3)",
+      "source_code": "virhe",
+      "description": "3",
+      "player_source_id": "60601",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 2,
+        "away": 9
+      }
+    },
+    {
+      "source_event_id": "10261690",
+      "period": 1,
+      "clock": {
+        "display": "0:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Virhe (4)",
+      "source_code": "virhe",
+      "description": "4",
+      "player_source_id": "9603",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 2,
+        "away": 9
+      }
+    },
+    {
+      "source_event_id": "10261703",
+      "period": 1,
+      "clock": {
+        "display": "0:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (2 7-18)",
+      "source_code": "maali",
+      "description": "2 7-18",
+      "player_source_id": "61526",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 7,
+        "away": 18
+      }
+    },
+    {
+      "source_event_id": "10261732",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Vaihdajakso",
+      "source_code": "vaihdajakso",
+      "description": null,
+      "player_source_id": null,
+      "team_source_id": "0",
+      "score_after": {
+        "home": 3,
+        "away": 9
+      }
+    },
+    {
+      "source_event_id": "10261771",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Maali (3 10-18)",
+      "source_code": "maali",
+      "description": "3 10-18",
+      "player_source_id": "40426",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 10,
+        "away": 18
+      }
+    },
+    {
+      "source_event_id": "10261784",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Virhe (1)",
+      "source_code": "virhe",
+      "description": "1",
+      "player_source_id": "8071",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 4,
+        "away": 9
+      }
+    },
+    {
+      "source_event_id": "10261786",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Maali (2 10-20)",
+      "source_code": "maali",
+      "description": "2 10-20",
+      "player_source_id": "60601",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 10,
+        "away": 20
+      }
+    },
+    {
+      "source_event_id": "10261799",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Maali (1 10-21)",
+      "source_code": "maali",
+      "description": "1 10-21",
+      "player_source_id": "60601",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 10,
+        "away": 21
+      }
+    },
+    {
+      "source_event_id": "10261820",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Virhe (1)",
+      "source_code": "virhe",
+      "description": "1",
+      "player_source_id": "13024",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 4,
+        "away": 11
+      }
+    },
+    {
+      "source_event_id": "10261832",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Virhe (2)",
+      "source_code": "virhe",
+      "description": "2",
+      "player_source_id": "10791",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 4,
+        "away": 11
+      }
+    },
+    {
+      "source_event_id": "10261844",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Maali (1 11-21)",
+      "source_code": "maali",
+      "description": "1 11-21",
+      "player_source_id": "61526",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 11,
+        "away": 21
+      }
+    },
+    {
+      "source_event_id": "10261852",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Maali (2 11-23)",
+      "source_code": "maali",
+      "description": "2 11-23",
+      "player_source_id": "13024",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 11,
+        "away": 23
+      }
+    },
+    {
+      "source_event_id": "10261855",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Maali (2 13-23)",
+      "source_code": "maali",
+      "description": "2 13-23",
+      "player_source_id": "2008",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 13,
+        "away": 23
+      }
+    },
+    {
+      "source_event_id": "10261860",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Virhe (2)",
+      "source_code": "virhe",
+      "description": "2",
+      "player_source_id": "40426",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 6,
+        "away": 12
+      }
+    },
+    {
+      "source_event_id": "10261892",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Virhe (3)",
+      "source_code": "virhe",
+      "description": "3",
+      "player_source_id": "11262",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 6,
+        "away": 12
+      }
+    },
+    {
+      "source_event_id": "10261904",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Maali (2 13-25)",
+      "source_code": "maali",
+      "description": "2 13-25",
+      "player_source_id": "60601",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 13,
+        "away": 25
+      }
+    },
+    {
+      "source_event_id": "10261910",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Maali (2 13-27)",
+      "source_code": "maali",
+      "description": "2 13-27",
+      "player_source_id": "14317",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 13,
+        "away": 27
+      }
+    },
+    {
+      "source_event_id": "10261912",
+      "period": 2,
+      "clock": {
+        "display": "15:00",
+        "minute": 15,
+        "second": 300
+      },
+      "event_type": "time-out (Aikalisä)",
+      "source_code": "aikalisa",
+      "description": "Aikalisä",
+      "player_source_id": "4",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 6,
+        "away": 14
+      }
+    },
+    {
+      "source_event_id": "10261937",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Virhe (4)",
+      "source_code": "virhe",
+      "description": "4",
+      "player_source_id": "10834",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 6,
+        "away": 14
+      }
+    },
+    {
+      "source_event_id": "10261949",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Maali (2 15-27)",
+      "source_code": "maali",
+      "description": "2 15-27",
+      "player_source_id": "3399",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 15,
+        "away": 27
+      }
+    },
+    {
+      "source_event_id": "10261973",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Maali (2 15-29)",
+      "source_code": "maali",
+      "description": "2 15-29",
+      "player_source_id": "60602",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 15,
+        "away": 29
+      }
+    },
+    {
+      "source_event_id": "10261984",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Maali (2 15-31)",
+      "source_code": "maali",
+      "description": "2 15-31",
+      "player_source_id": "11262",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 15,
+        "away": 31
+      }
+    },
+    {
+      "source_event_id": "10261997",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Virhe (3)",
+      "source_code": "virhe",
+      "description": "3",
+      "player_source_id": "10588",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 7,
+        "away": 16
+      }
+    },
+    {
+      "source_event_id": "10262008",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Virhe (4)",
+      "source_code": "virhe",
+      "description": "4",
+      "player_source_id": "40426",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 7,
+        "away": 16
+      }
+    },
+    {
+      "source_event_id": "10262017",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Maali (3 15-34)",
+      "source_code": "maali",
+      "description": "3 15-34",
+      "player_source_id": "10834",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 15,
+        "away": 34
+      }
+    },
+    {
+      "source_event_id": "10262034",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Maali (3 18-34)",
+      "source_code": "maali",
+      "description": "3 18-34",
+      "player_source_id": "3326",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 18,
+        "away": 34
+      }
+    },
+    {
+      "source_event_id": "10262079",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Maali (2 20-34)",
+      "source_code": "maali",
+      "description": "2 20-34",
+      "player_source_id": "61526",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 20,
+        "away": 34
+      }
+    },
+    {
+      "source_event_id": "10262089",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Virhe (5)",
+      "source_code": "virhe",
+      "description": "5",
+      "player_source_id": "12622",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 9,
+        "away": 17
+      }
+    },
+    {
+      "source_event_id": "10262097",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Maali (1 20-35)",
+      "source_code": "maali",
+      "description": "1 20-35",
+      "player_source_id": "9603",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 20,
+        "away": 35
+      }
+    },
+    {
+      "source_event_id": "10262102",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Maali (1 20-36)",
+      "source_code": "maali",
+      "description": "1 20-36",
+      "player_source_id": "9603",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 20,
+        "away": 36
+      }
+    },
+    {
+      "source_event_id": "10262111",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Maali (2 22-36)",
+      "source_code": "maali",
+      "description": "2 22-36",
+      "player_source_id": "8071",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 22,
+        "away": 36
+      }
+    },
+    {
+      "source_event_id": "10262114",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Maali (2 22-38)",
+      "source_code": "maali",
+      "description": "2 22-38",
+      "player_source_id": "60601",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 22,
+        "away": 38
+      }
+    },
+    {
+      "source_event_id": "10262124",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Virhe (5)",
+      "source_code": "virhe",
+      "description": "5",
+      "player_source_id": "60601",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 10,
+        "away": 20
+      }
+    },
+    {
+      "source_event_id": "10262135",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Maali (1 23-38)",
+      "source_code": "maali",
+      "description": "1 23-38",
+      "player_source_id": "61526",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 23,
+        "away": 38
+      }
+    },
+    {
+      "source_event_id": "10262149",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Virhe (6)",
+      "source_code": "virhe",
+      "description": "6",
+      "player_source_id": "3355",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 11,
+        "away": 20
+      }
+    },
+    {
+      "source_event_id": "10262153",
+      "period": 2,
+      "clock": {
+        "display": "20:00",
+        "minute": 20,
+        "second": 600
+      },
+      "event_type": "time-out (Aikalisä)",
+      "source_code": "aikalisa",
+      "description": "Aikalisä",
+      "player_source_id": "4",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 11,
+        "away": 20
+      }
+    },
+    {
+      "source_event_id": "10262179",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Maali (1 24-38)",
+      "source_code": "maali",
+      "description": "1 24-38",
+      "player_source_id": "10588",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 24,
+        "away": 38
+      }
+    },
+    {
+      "source_event_id": "10262185",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Maali (1 25-38)",
+      "source_code": "maali",
+      "description": "1 25-38",
+      "player_source_id": "10588",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 25,
+        "away": 38
+      }
+    },
+    {
+      "source_event_id": "10262208",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Virhe (6)",
+      "source_code": "virhe",
+      "description": "6",
+      "player_source_id": "12622",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 13,
+        "away": 20
+      }
+    },
+    {
+      "source_event_id": "10262217",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Maali (1 25-39)",
+      "source_code": "maali",
+      "description": "1 25-39",
+      "player_source_id": "60602",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 25,
+        "away": 39
+      }
+    },
+    {
+      "source_event_id": "10262221",
+      "period": 2,
+      "clock": {
+        "display": "10:00",
+        "minute": 11,
+        "second": 0
+      },
+      "event_type": "Maali (1 25-40)",
+      "source_code": "maali",
+      "description": "1 25-40",
+      "player_source_id": "60602",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 25,
+        "away": 40
+      }
+    },
+    {
+      "source_event_id": "10262266",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Vaihdajakso",
+      "source_code": "vaihdajakso",
+      "description": null,
+      "player_source_id": null,
+      "team_source_id": "0",
+      "score_after": {
+        "home": 13,
+        "away": 22
+      }
+    },
+    {
+      "source_event_id": "10262449",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Virhe (1)",
+      "source_code": "virhe",
+      "description": "1",
+      "player_source_id": "14317",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 13,
+        "away": 22
+      }
+    },
+    {
+      "source_event_id": "10262463",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Maali (2 25-42)",
+      "source_code": "maali",
+      "description": "2 25-42",
+      "player_source_id": "3355",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 25,
+        "away": 42
+      }
+    },
+    {
+      "source_event_id": "10262469",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Maali (2 27-42)",
+      "source_code": "maali",
+      "description": "2 27-42",
+      "player_source_id": "61526",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 27,
+        "away": 42
+      }
+    },
+    {
+      "source_event_id": "10262476",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Maali (3 30-42)",
+      "source_code": "maali",
+      "description": "3 30-42",
+      "player_source_id": "8071",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 30,
+        "away": 42
+      }
+    },
+    {
+      "source_event_id": "10262492",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Virhe (2)",
+      "source_code": "virhe",
+      "description": "2",
+      "player_source_id": "9603",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 15,
+        "away": 23
+      }
+    },
+    {
+      "source_event_id": "10262501",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Maali (1 31-42)",
+      "source_code": "maali",
+      "description": "1 31-42",
+      "player_source_id": "10588",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 31,
+        "away": 42
+      }
+    },
+    {
+      "source_event_id": "10262510",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Maali (2 31-44)",
+      "source_code": "maali",
+      "description": "2 31-44",
+      "player_source_id": "60602",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 31,
+        "away": 44
+      }
+    },
+    {
+      "source_event_id": "10262512",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Maali (2 33-44)",
+      "source_code": "maali",
+      "description": "2 33-44",
+      "player_source_id": "10588",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 33,
+        "away": 44
+      }
+    },
+    {
+      "source_event_id": "10262515",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Maali (3 33-47)",
+      "source_code": "maali",
+      "description": "3 33-47",
+      "player_source_id": "60602",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 33,
+        "away": 47
+      }
+    },
+    {
+      "source_event_id": "10262527",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Maali (2 35-47)",
+      "source_code": "maali",
+      "description": "2 35-47",
+      "player_source_id": "61526",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 35,
+        "away": 47
+      }
+    },
+    {
+      "source_event_id": "10262554",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Maali (2 35-49)",
+      "source_code": "maali",
+      "description": "2 35-49",
+      "player_source_id": "9603",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 35,
+        "away": 49
+      }
+    },
+    {
+      "source_event_id": "10262578",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Virhe (3)",
+      "source_code": "virhe",
+      "description": "3",
+      "player_source_id": "10791",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 18,
+        "away": 26
+      }
+    },
+    {
+      "source_event_id": "10262582",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Maali (1 36-49)",
+      "source_code": "maali",
+      "description": "1 36-49",
+      "player_source_id": "3399",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 36,
+        "away": 49
+      }
+    },
+    {
+      "source_event_id": "10262592",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Maali (2 38-49)",
+      "source_code": "maali",
+      "description": "2 38-49",
+      "player_source_id": "3399",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 38,
+        "away": 49
+      }
+    },
+    {
+      "source_event_id": "10262610",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Maali (3 38-52)",
+      "source_code": "maali",
+      "description": "3 38-52",
+      "player_source_id": "11262",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 38,
+        "away": 52
+      }
+    },
+    {
+      "source_event_id": "10262620",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Virhe (1)",
+      "source_code": "virhe",
+      "description": "1",
+      "player_source_id": "10588",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 20,
+        "away": 27
+      }
+    },
+    {
+      "source_event_id": "10262631",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Virhe (4)",
+      "source_code": "virhe",
+      "description": "4",
+      "player_source_id": "10791",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 20,
+        "away": 27
+      }
+    },
+    {
+      "source_event_id": "10262650",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Virhe (5)",
+      "source_code": "virhe",
+      "description": "5",
+      "player_source_id": "60602",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 20,
+        "away": 27
+      }
+    },
+    {
+      "source_event_id": "10262656",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Maali (1 39-52)",
+      "source_code": "maali",
+      "description": "1 39-52",
+      "player_source_id": "40426",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 39,
+        "away": 52
+      }
+    },
+    {
+      "source_event_id": "10262664",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Maali (1 40-52)",
+      "source_code": "maali",
+      "description": "1 40-52",
+      "player_source_id": "40426",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 40,
+        "away": 52
+      }
+    },
+    {
+      "source_event_id": "10262670",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Virhe (2)",
+      "source_code": "virhe",
+      "description": "2",
+      "player_source_id": "40426",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 22,
+        "away": 27
+      }
+    },
+    {
+      "source_event_id": "10262682",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Virhe (3)",
+      "source_code": "virhe",
+      "description": "3",
+      "player_source_id": "3326",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 22,
+        "away": 27
+      }
+    },
+    {
+      "source_event_id": "10262690",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Virhe (4)",
+      "source_code": "virhe",
+      "description": "4",
+      "player_source_id": "3326",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 22,
+        "away": 27
+      }
+    },
+    {
+      "source_event_id": "10262704",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Maali (1 40-53)",
+      "source_code": "maali",
+      "description": "1 40-53",
+      "player_source_id": "14317",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 40,
+        "away": 53
+      }
+    },
+    {
+      "source_event_id": "10262709",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Maali (1 40-54)",
+      "source_code": "maali",
+      "description": "1 40-54",
+      "player_source_id": "14317",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 40,
+        "away": 54
+      }
+    },
+    {
+      "source_event_id": "10262723",
+      "period": 3,
+      "clock": {
+        "display": "20:00",
+        "minute": 21,
+        "second": 0
+      },
+      "event_type": "Maali (2 40-56)",
+      "source_code": "maali",
+      "description": "2 40-56",
+      "player_source_id": "11869",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 40,
+        "away": 56
+      }
+    },
+    {
+      "source_event_id": "10262728",
+      "period": 3,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 600
+      },
+      "event_type": "time-out (Aikalisä)",
+      "source_code": "aikalisa",
+      "description": "Aikalisä",
+      "player_source_id": "4",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 22,
+        "away": 30
+      }
+    },
+    {
+      "source_event_id": "10262756",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Vaihdajakso",
+      "source_code": "vaihdajakso",
+      "description": null,
+      "player_source_id": null,
+      "team_source_id": "0",
+      "score_after": {
+        "home": 22,
+        "away": 30
+      }
+    },
+    {
+      "source_event_id": "10262790",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (2 40-58)",
+      "source_code": "maali",
+      "description": "2 40-58",
+      "player_source_id": "60601",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 40,
+        "away": 58
+      }
+    },
+    {
+      "source_event_id": "10262802",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Virhe (1)",
+      "source_code": "virhe",
+      "description": "1",
+      "player_source_id": "61526",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 22,
+        "away": 31
+      }
+    },
+    {
+      "source_event_id": "10262804",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (1 40-59)",
+      "source_code": "maali",
+      "description": "1 40-59",
+      "player_source_id": "60601",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 40,
+        "away": 59
+      }
+    },
+    {
+      "source_event_id": "10262806",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (1 40-60)",
+      "source_code": "maali",
+      "description": "1 40-60",
+      "player_source_id": "60601",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 40,
+        "away": 60
+      }
+    },
+    {
+      "source_event_id": "10262850",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Virhe (2)",
+      "source_code": "virhe",
+      "description": "2",
+      "player_source_id": "3399",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 22,
+        "away": 33
+      }
+    },
+    {
+      "source_event_id": "10262881",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (2 40-62)",
+      "source_code": "maali",
+      "description": "2 40-62",
+      "player_source_id": "60601",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 40,
+        "away": 62
+      }
+    },
+    {
+      "source_event_id": "10262884",
+      "period": 4,
+      "clock": {
+        "display": "34:00",
+        "minute": null,
+        "second": 240
+      },
+      "event_type": "time-out (Aikalisä)",
+      "source_code": "aikalisa",
+      "description": "Aikalisä",
+      "player_source_id": "4",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 22,
+        "away": 34
+      }
+    },
+    {
+      "source_event_id": "10262922",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Virhe (1)",
+      "source_code": "virhe",
+      "description": "1",
+      "player_source_id": "60601",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 22,
+        "away": 34
+      }
+    },
+    {
+      "source_event_id": "10262938",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (3 40-65)",
+      "source_code": "maali",
+      "description": "3 40-65",
+      "player_source_id": "9603",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 40,
+        "away": 65
+      }
+    },
+    {
+      "source_event_id": "10262953",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Virhe (3)",
+      "source_code": "virhe",
+      "description": "3",
+      "player_source_id": "10588",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 22,
+        "away": 35
+      }
+    },
+    {
+      "source_event_id": "10262957",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (1 40-66)",
+      "source_code": "maali",
+      "description": "1 40-66",
+      "player_source_id": "10834",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 40,
+        "away": 66
+      }
+    },
+    {
+      "source_event_id": "10262966",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (3 43-66)",
+      "source_code": "maali",
+      "description": "3 43-66",
+      "player_source_id": "40426",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 43,
+        "away": 66
+      }
+    },
+    {
+      "source_event_id": "10262987",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Virhe (2)",
+      "source_code": "virhe",
+      "description": "2",
+      "player_source_id": "11869",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 23,
+        "away": 36
+      }
+    },
+    {
+      "source_event_id": "10262988",
+      "period": 4,
+      "clock": {
+        "display": "37:00",
+        "minute": null,
+        "second": 420
+      },
+      "event_type": "time-out (Aikalisä)",
+      "source_code": "aikalisa",
+      "description": "Aikalisä",
+      "player_source_id": "4",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 23,
+        "away": 36
+      }
+    },
+    {
+      "source_event_id": "10263024",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Virhe (4)",
+      "source_code": "virhe",
+      "description": "4",
+      "player_source_id": "3399",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 23,
+        "away": 36
+      }
+    },
+    {
+      "source_event_id": "10263043",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Virhe (5)",
+      "source_code": "virhe",
+      "description": "5",
+      "player_source_id": "3399",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 23,
+        "away": 36
+      }
+    },
+    {
+      "source_event_id": "10263064",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (1 43-67)",
+      "source_code": "maali",
+      "description": "1 43-67",
+      "player_source_id": "11262",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 43,
+        "away": 67
+      }
+    },
+    {
+      "source_event_id": "10263068",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Virhe (3)",
+      "source_code": "virhe",
+      "description": "3",
+      "player_source_id": "11262",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 23,
+        "away": 37
+      }
+    },
+    {
+      "source_event_id": "10263092",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Virhe (6)",
+      "source_code": "virhe",
+      "description": "6",
+      "player_source_id": "2008",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 23,
+        "away": 37
+      }
+    },
+    {
+      "source_event_id": "10263093",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (2 43-69)",
+      "source_code": "maali",
+      "description": "2 43-69",
+      "player_source_id": "11262",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 43,
+        "away": 69
+      }
+    },
+    {
+      "source_event_id": "10263101",
+      "period": 4,
+      "clock": {
+        "display": "38:00",
+        "minute": null,
+        "second": 480
+      },
+      "event_type": "time-out (Aikalisä)",
+      "source_code": "aikalisa",
+      "description": "Aikalisä",
+      "player_source_id": "4",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 23,
+        "away": 38
+      }
+    },
+    {
+      "source_event_id": "10263127",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Virhe (4)",
+      "source_code": "virhe",
+      "description": "4",
+      "player_source_id": "10791",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 23,
+        "away": 38
+      }
+    },
+    {
+      "source_event_id": "10263132",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (1 44-69)",
+      "source_code": "maali",
+      "description": "1 44-69",
+      "player_source_id": "61526",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 44,
+        "away": 69
+      }
+    },
+    {
+      "source_event_id": "10263138",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (1 45-69)",
+      "source_code": "maali",
+      "description": "1 45-69",
+      "player_source_id": "61526",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 45,
+        "away": 69
+      }
+    },
+    {
+      "source_event_id": "10263207",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Virhe (7)",
+      "source_code": "virhe",
+      "description": "7",
+      "player_source_id": "3326",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 25,
+        "away": 38
+      }
+    },
+    {
+      "source_event_id": "10263212",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (1 45-70)",
+      "source_code": "maali",
+      "description": "1 45-70",
+      "player_source_id": "10791",
+      "team_source_id": "8",
+      "score_after": {
+        "home": 45,
+        "away": 70
+      }
+    },
+    {
+      "source_event_id": "10263219",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Kello seis",
+      "source_code": "kelloseis",
+      "description": null,
+      "player_source_id": null,
+      "team_source_id": "0",
+      "score_after": {
+        "home": 25,
+        "away": 39
+      }
+    },
+    {
+      "source_event_id": "10263227",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Virhe (8)",
+      "source_code": "virhe",
+      "description": "8",
+      "player_source_id": "61526",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 25,
+        "away": 39
+      }
+    },
+    {
+      "source_event_id": "10263251",
+      "period": 4,
+      "clock": {
+        "display": "30:00",
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Maali (2 47-70)",
+      "source_code": "maali",
+      "description": "2 47-70",
+      "player_source_id": "61526",
+      "team_source_id": "48083",
+      "score_after": {
+        "home": 47,
+        "away": 70
+      }
+    },
+    {
+      "source_event_id": "99999999",
+      "period": 9,
+      "clock": {
+        "display": null,
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Ottelu Loppui",
+      "source_code": "otteluloppui",
+      "description": null,
+      "player_source_id": null,
+      "team_source_id": "0",
+      "score_after": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "source_event_id": "0",
+      "period": 0,
+      "clock": {
+        "display": null,
+        "minute": null,
+        "second": 0
+      },
+      "event_type": "Ottelu Alkoi",
+      "source_code": "ottelualkoi",
+      "description": null,
+      "player_source_id": null,
+      "team_source_id": "0",
+      "score_after": {
+        "home": null,
+        "away": null
+      }
+    }
+  ],
+  "shots": [],
+  "availability": {
+    "lineups": true,
+    "events": true,
+    "box_score": true,
+    "shot_coordinates": false
+  },
+  "validation": {
+    "valid": true,
+    "failure_count": 0,
+    "warning_count": 0,
+    "checks": [
+      {
+        "name": "match_identity",
+        "status": "pass",
+        "detail": "source and game IDs are present and agree"
+      },
+      {
+        "name": "two_teams",
+        "status": "pass",
+        "detail": "two teams with source IDs are present"
+      },
+      {
+        "name": "home_away_identity",
+        "status": "pass",
+        "detail": "home and away source IDs differ"
+      },
+      {
+        "name": "unique_lineups",
+        "status": "pass",
+        "detail": "lineup IDs are unique"
+      },
+      {
+        "name": "unique_events",
+        "status": "pass",
+        "detail": "event IDs are unique or no events are present"
+      },
+      {
+        "name": "period_score_reconciliation",
+        "status": "pass",
+        "detail": "period scores sum to final score"
+      },
+      {
+        "name": "played_payload",
+        "status": "pass",
+        "detail": "match status and statistical payload are both present"
+      }
+    ]
+  }
+}

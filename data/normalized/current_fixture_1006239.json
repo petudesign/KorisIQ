@@ -1,0 +1,108 @@
+{
+  "schema_version": "0.1",
+  "source": {
+    "system": "basketfi_torneopal",
+    "entity": "match",
+    "source_entity_id": "1006239",
+    "source_url": "https://koripallo-api.torneopal.net/taso/rest/getMatch?match_id=1006239",
+    "ingested_at_utc": "2026-09-15T11:15:56Z",
+    "payload_sha256": "1ae5a4078b62803f52136f51d09f847854920a4ce1f137e2e4a71bf23a2899d6",
+    "requested_context": {
+      "competition_id": "huki2627",
+      "category_id": "1",
+      "category_name": "Naisten Korisliiga"
+    }
+  },
+  "competition": {
+    "source_id": "huki2627",
+    "name": "Huippukoripallosarjat 2026-27"
+  },
+  "season": {
+    "source_id": "2026-2027",
+    "name": "2026-2027"
+  },
+  "game": {
+    "source_id": "1006239",
+    "match_number": "293",
+    "scheduled_date": "2026-10-02",
+    "scheduled_time": "18:30:00",
+    "timezone": "Europe/Helsinki",
+    "status": "Fixture",
+    "statistics_level": "normal",
+    "venue": {
+      "source_id": "35",
+      "name": "MLL Areena",
+      "city": "KOUVOLA"
+    },
+    "periods": [],
+    "final_score": {
+      "home": null,
+      "away": null
+    }
+  },
+  "teams": [
+    {
+      "source_id": "48083",
+      "name": "Kouvottaret",
+      "home_away": "home",
+      "score": null
+    },
+    {
+      "source_id": "34",
+      "name": "ToPo",
+      "home_away": "away",
+      "score": null
+    }
+  ],
+  "players": [],
+  "events": [],
+  "shots": [],
+  "availability": {
+    "lineups": false,
+    "events": false,
+    "box_score": false,
+    "shot_coordinates": false
+  },
+  "validation": {
+    "valid": true,
+    "failure_count": 0,
+    "warning_count": 1,
+    "checks": [
+      {
+        "name": "match_identity",
+        "status": "pass",
+        "detail": "source and game IDs are present and agree"
+      },
+      {
+        "name": "two_teams",
+        "status": "pass",
+        "detail": "two teams with source IDs are present"
+      },
+      {
+        "name": "home_away_identity",
+        "status": "pass",
+        "detail": "home and away source IDs differ"
+      },
+      {
+        "name": "unique_lineups",
+        "status": "pass",
+        "detail": "lineup IDs are unique"
+      },
+      {
+        "name": "unique_events",
+        "status": "pass",
+        "detail": "event IDs are unique or no events are present"
+      },
+      {
+        "name": "period_score_reconciliation",
+        "status": "warn",
+        "detail": "not enough score fields to reconcile; common for fixtures"
+      },
+      {
+        "name": "fixture_empty_state",
+        "status": "pass",
+        "detail": "unplayed fixture has no stats and is represented as unavailable"
+      }
+    ]
+  }
+}
