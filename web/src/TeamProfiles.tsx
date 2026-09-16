@@ -1,6 +1,7 @@
 import { useState } from "react";
 import season from "../../data/normalized/season_verified.summary.json";
 import { useI18n } from "./i18n";
+import { TeamTrend } from "./TeamTrend";
 
 type Metrics = Record<string, number | null>;
 type ProfileStatus = "above" | "below" | "level";
@@ -51,7 +52,7 @@ function getStatusLabel(comparison: { status: ProfileStatus; intensity: "normal"
   return statusLabel[comparison.status];
 }
 
-export function TeamProfiles() {
+export function TeamProfiles({ onOpenMatch }: { onOpenMatch: (id: string) => void }) {
   const { language, tr } = useI18n();
   const teams = season.aggregate.teams;
   const [selected, setSelected] = useState(teams[0]?.source_team_id ?? "");
@@ -100,6 +101,7 @@ export function TeamProfiles() {
       <div className="profile-legend" aria-label={tr("Väriprofiilin selite", "Color profile legend")}><span className="profile-legend-item profile-legend-item--above"><i aria-hidden="true"><ProfileStatusIcon status="above" /></i> {tr("yli sarjan tason", "above league level")}</span><span className="profile-legend-item profile-legend-item--level"><i aria-hidden="true"><ProfileStatusIcon status="level" /></i> {tr("lähellä sarjan tasoa", "near league level")}</span><span className="profile-legend-item profile-legend-item--below"><i aria-hidden="true"><ProfileStatusIcon status="below" /></i> {tr("alle sarjan tason", "below league level")}</span></div>
       <small>{tr(`Vertailussa ${season.aggregate.games}/${season.summary.available_played_games} ottelua. Tulokset kuvaavat saatavilla olevaa aineistoa.`, `Comparison covers ${season.aggregate.games}/${season.summary.available_played_games} games. Results describe the available dataset.`)}</small>
     </section>
+    <TeamTrend key={team.source_team_id} teamId={team.source_team_id} baseline={{ ORtg: team.metrics.offensive_rating, DRtg: team.metrics.defensive_rating, "Net Rating": team.metrics.net_rating }} onOpenMatch={onOpenMatch} />
     <section className="profile-grid" aria-label={`${team.name}: ${tr("vertailu sarjan tasoon", "comparison with league level")}`}>
       {localizedDefinitions.map(definition => {
         const value = metrics[definition.key] ?? null;

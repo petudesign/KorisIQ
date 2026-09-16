@@ -1,10 +1,13 @@
-import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import { availability, insights, match, players, teamSummary, type BoxScore, type Player, type PlayerRole, type TeamStats, type ViewKey } from "./data";
 import { deriveTeamMetrics, type DerivedTeamMetrics } from "./metrics";
 import seasonData from "../../data/normalized/season_verified.summary.json"; // Compact validated season totals.
 import { TeamProfiles } from "./TeamProfiles";
+import { TeamStyleMap } from "./TeamStyleMap";
+import { TeamGameSplit } from "./TeamGameSplit";
 import { scheduleByMatchId } from "./schedule";
 import { useI18n, type Language } from "./i18n";
+import { PaperLeaderShader } from "./PaperShaderBackdrop";
 
 type SeasonMatchRecord = typeof import("../../data/normalized/season_verified.json")["matches"][number];
 type RawTeam = SeasonMatchRecord["teams"][number];
@@ -631,9 +634,142 @@ function OverviewContext({ onOpenMatches }: { onOpenMatches: () => void }) {
   );
 }
 
+function PaperTeamMarker({ teamName, status }: { teamName: string; status: "winner" | "last" }) {
+  const initials = teamName.split(/\s+/).filter(Boolean).slice(0, 2).map((part) => part[0]).join("").toUpperCase() || "?";
+  return (
+    <div className={`paper-team-marker paper-team-marker--${status}`} aria-hidden="true">
+      <span className="paper-team-marker-initials">{initials}</span>
+      <span className="paper-team-marker-status"><Icon name={status === "winner" ? "trophy" : "flag"} size={17} /></span>
+    </div>
+  );
+}
+
+function PaperLeaderCard({ title, playerName, value, team, shaderColor, valueColor, visual }: { title: string; playerName: string; value: string; team: string; shaderColor: string; valueColor: string; visual?: ReactNode }) {
+  return (
+    <div className="overview-leader-card overview-leader-card--ppg" style={{ "--ppg-value-color": valueColor } as CSSProperties}>
+      <PaperLeaderShader colorFront={shaderColor} />
+      <div className="ppg-card-content">
+        <div className="ppg-card-title">{title}</div>
+        <div className="ppg-card-player">{playerName}</div>
+        <div className="ppg-card-value">{value}</div>
+        <div className="ppg-card-team">{team}</div>
+        {visual ?? <img className="ppg-card-silhouette" src="/ppg-silhouette.png" alt="" aria-hidden="true" />}
+      </div>
+    </div>
+  );
+}
+
+function OverviewSectionLinks({ tr }: { tr: (fi: string, en: string) => string }) {
+  const links = [
+    { href: "#overview-summary", label: tr("Yhteenveto", "Summary") },
+    { href: "#overview-leaders", label: tr("Kauden kärjet", "Season leaders") },
+    { href: "#overview-scratchpad", label: tr("Rakenna analyysikysymys", "Build an analysis question") },
+    { href: "#overview-teams", label: tr("Joukkueet", "Teams") },
+    { href: "#team-style-map", label: "Team Style Map" },
+    { href: "#team-game-split", label: tr("Pelitavan ja tuloksen yhteys", "Playing style and outcome") },
+  ];
+
+  return <>
+    <nav className="overview-section-nav overview-section-nav--desktop" aria-label={tr("Yleiskatsauksen osiot", "Overview sections")}>
+      <div className="overview-section-nav-rail">
+        {links.map((link) => (
+          <a className="overview-section-nav-marker" href={link.href} key={link.href} aria-label={link.label}>
+            <span className="overview-section-nav-marker-bar" aria-hidden="true" />
+            <span className="overview-section-nav-marker-tooltip" aria-hidden="true">{link.label}</span>
+          </a>
+        ))}
+      </div>
+    </nav>
+
+    <details className="overview-section-nav overview-section-nav--mobile">
+      <summary>{tr("Sisältö", "Contents")} <Icon name="chevron" size={14} /></summary>
+      <ol>
+        {links.map((link, index) => <li key={link.href}><a href={link.href}><span className="overview-section-nav-number">{String(index + 1).padStart(2, "0")}</span><span className="overview-section-nav-label">{link.label}</span></a></li>)}
+      </ol>
+    </details>
+  </>;
+}
+
+type ScratchMetricKey = "steals" | "fta" | "three_pa" | "turnovers" | "points";
+type ScratchPeriodKey = "game" | "q1" | "q2" | "q3" | "q4";
+
+const scratchMetrics: Array<{ key: ScratchMetricKey; labelFi: string; labelEn: string }> = [
+  { key: "steals", labelFi: "riistot", labelEn: "steals" },
+  { key: "fta", labelFi: "FTA", labelEn: "FTA" },
+  { key: "three_pa", labelFi: "3PA", labelEn: "3PA" },
+  { key: "turnovers", labelFi: "menetykset", labelEn: "turnovers" },
+  { key: "points", labelFi: "pisteet", labelEn: "points" },
+];
+
+const scratchPeriods: Array<{ key: ScratchPeriodKey; labelFi: string; labelEn: string }> = [
+  { key: "game", labelFi: "koko ottelussa", labelEn: "in the full game" },
+  { key: "q1", labelFi: "ensimmäisellä neljänneksellä", labelEn: "in the first quarter" },
+  { key: "q2", labelFi: "toisella neljänneksellä", labelEn: "in the second quarter" },
+  { key: "q3", labelFi: "kolmannella neljänneksellä", labelEn: "in the third quarter" },
+  { key: "q4", labelFi: "viimeisellä neljänneksellä", labelEn: "in the final quarter" },
+];
+
+function OverviewScratchpad() {
+  const { tr, language } = useI18n();
+  const [subject, setSubject] = useState("all");
+  const [metricKey, setMetricKey] = useState<ScratchMetricKey>("steals");
+  const metric = scratchMetrics.find((item) => item.key === metricKey)!;
+  const metricLabel = tr(metric.labelFi, metric.labelEn);
+  const format = (value: number, digits = 0) => value.toLocaleString(language === "fi" ? "fi-FI" : "en-GB", { minimumFractionDigits: digits, maximumFractionDigits: digits });
+  const rows = seasonData.aggregate.teams
+    .filter((team) => subject === "all" || team.name === subject)
+    .map((team) => ({ name: team.name, games: team.games, total: team.totals[metricKey], average: team.games > 0 ? team.totals[metricKey] / team.games : null }))
+    .sort((a, b) => (b.average ?? -Infinity) - (a.average ?? -Infinity) || a.name.localeCompare(b.name, "fi"));
+
+  return (
+    <section id="overview-scratchpad" className="panel overview-scratchpad overview-section-anchor" aria-labelledby="overview-scratchpad-heading">
+      <div className="panel-heading panel-heading--plain">
+        <div>
+          <h3 id="overview-scratchpad-heading">{tr("Rakenna analyysikysymys", "Build an analysis question")}</h3>
+          <p className="panel-subcopy">{tr("Rakenna yksi analyysikysymys vaihdettavista palikoista.", "Build one analysis question from swappable building blocks.")}</p>
+        </div>
+        <span className="panel-context">2025–26</span>
+      </div>
+
+      <div className="overview-scratchpad-controls">
+        <label>
+          <span>{tr("Kuka?", "Who?")}</span>
+          <select value={subject} onChange={(event) => setSubject(event.target.value)}>
+            <option value="all">{tr("Jokaisen joukkueen", "Every team")}</option>
+            {seasonData.aggregate.teams.map((team) => <option value={team.name} key={team.name}>{team.name}</option>)}
+          </select>
+        </label>
+        <label>
+          <span>{tr("Mitä?", "What?")}</span>
+          <select value={metricKey} onChange={(event) => setMetricKey(event.target.value as ScratchMetricKey)}>
+            {scratchMetrics.map((item) => <option value={item.key} key={item.key}>{tr(item.labelFi, item.labelEn)}</option>)}
+          </select>
+        </label>
+        <label>
+          <span>{tr("Milloin?", "When?")}</span>
+          <select defaultValue="game" aria-describedby="scratchpad-period-note">
+            {scratchPeriods.map((item) => <option value={item.key} key={item.key} disabled={item.key !== "game"}>{tr(item.labelFi, item.labelEn)}{item.key !== "game" ? tr(" — ei vielä saatavilla", " — not yet available") : ""}</option>)}
+          </select>
+        </label>
+      </div>
+
+      <p id="scratchpad-period-note" className="scratchpad-note">{tr("Neljänneskohtaiset valinnat eivät ole vielä saatavilla.", "Quarter-level selections are not available yet.")}</p>
+      <div className="scratchpad-results" aria-live="polite" aria-atomic="true">
+        <table>
+          <thead><tr><th scope="col">{tr("Joukkue", "Team")}</th><th scope="col">{tr("Keskiarvo / ottelu", "Average / game")}</th><th scope="col">{tr("Yhteensä", "Total")}</th><th scope="col">{tr("Ottelut", "Games")}</th></tr></thead>
+          <tbody>{rows.map((row) => <tr key={row.name}><th scope="row">{row.name}</th><td><strong>{row.average === null ? "—" : format(row.average, 1)}</strong></td><td>{format(row.total)}</td><td>{format(row.games)}</td></tr>)}</tbody>
+        </table>
+        {rows.length === 0 && <p>{tr("Valinnalle ei ole saatavilla tuloksia.", "No results available for this selection.")}</p>}
+      </div>
+      <p className="scratchpad-note">{tr("Mukana koko ottelu jatkoaikoineen. Joukkueet järjestetty ottelukeskiarvon mukaan suurimmasta pienimpään; suurempi luku ei aina tarkoita parempaa.", "Full games include overtime. Teams are ordered by average from highest to lowest; higher does not always mean better.")}</p>
+    </section>
+  );
+}
+
 function OverviewView({ onOpenTeams }: { onOpenTeams: () => void }) {
   const { tr } = useI18n();
   const league = seasonData.aggregate.league;
+  const leaguePace = league.games > 0 ? league.metrics.estimated_possessions / (league.games * 2) : null;
   const netRankedTeams = useMemo(() => [...seasonData.aggregate.teams].sort((a, b) => b.metrics.net_rating - a.metrics.net_rating), []);
   const largestNetRating = Math.max(1, ...netRankedTeams.map((team) => Math.abs(team.metrics.net_rating)));
   const leadingTeam = netRankedTeams[0];
@@ -641,6 +777,7 @@ function OverviewView({ onOpenTeams }: { onOpenTeams: () => void }) {
   const [teamSort, setTeamSort] = useState<{ key: TeamSortKey; direction: SortDirection }>({ key: "net_rating", direction: "desc" });
   const [standings, setStandings] = useState<StandingRow[]>([]);
   const [seasonPlayers, setSeasonPlayers] = useState<SeasonPlayerRow[]>([]);
+  const [seasonMatches, setSeasonMatches] = useState<SeasonMatchRecord[]>([]);
 
   useEffect(() => {
     let cancelled = false;
@@ -648,6 +785,7 @@ function OverviewView({ onOpenTeams }: { onOpenTeams: () => void }) {
       if (cancelled) return;
       setStandings(buildStandings(records));
       setSeasonPlayers(aggregateSeasonPlayers(records));
+      setSeasonMatches(records);
     });
     return () => {
       cancelled = true;
@@ -674,24 +812,56 @@ function OverviewView({ onOpenTeams }: { onOpenTeams: () => void }) {
 
   return (
     <>
-      <section className="overview-metrics-grid" aria-label={tr("Liigan keskeiset tunnusluvut", "League key metrics")}>
-        <div className="panel overview-metric"><span className="stat-label">{tr("Pisteet / ottelu", "Points / game")}</span><strong>{overviewValue(league.per_game.points)}</strong><small>{tr("molemmat joukkueet yhteensä", "both teams combined")}</small></div>
-        <div className="panel overview-metric"><span className="stat-label">3PA / {tr("joukkue", "team")} / {tr("ottelu", "game")}</span><strong>{overviewValue(league.per_game.three_pa / 2)}</strong><small>{tr("kolmen pisteen yrityksiä", "three-point attempts")}</small></div>
-        <div className="panel overview-metric"><span className="stat-label">eFG%</span><strong>{overviewValue(league.metrics.efg_pct, "%")}</strong><small>{tr("heittojen painotettu tehokkuus", "shot efficiency weighted for threes")}</small></div>
-        <div className="panel overview-metric overview-metric--offense"><span className="stat-label">ORtg</span><strong>{overviewValue(league.metrics.offensive_rating)}</strong><small>{tr("pistettä / 100 pallonhallintaa", "points / 100 possessions")}</small></div>
+      <section id="overview-summary" className="overview-metrics-grid overview-section-anchor" aria-label={tr("Liigan keskeiset tunnusluvut", "League key metrics")}>
+        <div className="panel overview-metric"><strong>{overviewValue(league.metrics.offensive_rating)} <span className="overview-metric-unit">ORtg</span></strong><small>{tr("Sarjan hyökkäystehokkuus", "League offensive efficiency")}</small></div>
+        <div className="panel overview-metric"><strong>{overviewValue(leaguePace)} <span className="overview-metric-unit">{tr("pallonhallintaa / ottelu", "possessions/game")}</span></strong><small>{tr("Pelin tempo", "Game pace")}</small></div>
+        <div className="panel overview-metric"><strong>{overviewValue(league.metrics.three_point_attempt_rate, "%")} <span className="overview-metric-unit">{tr("kolmosyritysten osuus", "shots from three")}</span></strong><small>{tr("Heittoprofiili", "Shot profile")}</small></div>
+        <div className="panel overview-metric"><strong>{overviewValue(league.metrics.efg_pct, "%")} <span className="overview-metric-unit">eFG</span></strong><small>{tr("Heittotehokkuus", "Shooting efficiency")}</small></div>
       </section>
 
-      <section className="panel overview-leaders-panel" aria-labelledby="overview-leaders-heading">
+      <section id="overview-leaders" className="panel overview-leaders-panel overview-section-anchor" aria-labelledby="overview-leaders-heading">
         <div className="panel-heading panel-heading--plain"><div><h3 id="overview-leaders-heading">{tr("Kauden kärjet", "Season leaders")}</h3><p className="panel-subcopy">{tr("Perusluvut saavat tässä rinnalleen kauden kontekstin.", "Core stats, with season context alongside them.")}</p></div><span className="panel-context">{tr("min. 8 ottelua pelaajille", "min. 8 games for players")}</span></div>
         <div className="overview-leader-grid">
-          <div className="overview-leader-card overview-leader-card--positive"><div className="overview-leader-card-label"><span className="overview-leader-card-icon"><Icon name="trophy" size={15} /></span><span>{tr("Runkosarjan ykkönen", "Regular-season leader")}</span></div><div className="overview-leader-card-entity"><EntityPlaceholder name={winner?.name ?? "?"} kind="team" /><strong>{winner?.name ?? tr("Ladataan…", "Loading…")}</strong></div><small>{winner ? `${winner.wins} ${tr("voittoa", "wins")} · ${overviewSignedIntegerValue(winner.pointsFor - winner.pointsAgainst)} ${tr("piste-ero", "point differential")}` : tr("Voittosarake muodostetaan otteluista", "Standings are calculated from games")}</small></div>
-          <div className="overview-leader-card overview-leader-card--negative"><div className="overview-leader-card-label"><span className="overview-leader-card-icon"><Icon name="flag" size={15} /></span><span>{tr("Runkosarjan viimeinen", "Bottom of the regular season")}</span></div><div className="overview-leader-card-entity"><EntityPlaceholder name={lastPlace?.name ?? "?"} kind="team" /><strong>{lastPlace?.name ?? tr("Ladataan…", "Loading…")}</strong></div><small>{lastPlace ? `${lastPlace.losses} ${tr("tappiota", "losses")} · ${tr("ei sama asia kuin putoaminen", "not the same as relegation")}` : tr("Sijoitus muodostetaan otteluista", "Standings are calculated from games")}</small></div>
-          <div className="overview-leader-card overview-leader-card--highlight overview-leader-card--has-portrait"><div className="overview-leader-card-main"><div className="overview-leader-card-label"><span className="overview-leader-card-icon"><Icon name="target" size={15} /></span><span>{tr("Eniten pisteitä / ottelu", "Most points / game")}</span></div><div className="overview-leader-card-entity"><strong>{ppgLeader?.name ?? tr("Ladataan…", "Loading…")}</strong></div><b className="overview-leader-card-value">{ppgLeader ? `${overviewValue(playerPerGame(ppgLeader, "points"))} PPG` : "—"}</b><small>{ppgLeader?.team ?? tr("Pelaajatiedot latautuvat", "Player data is loading")}</small></div><NeutralPortrait /></div>
-          <div className="overview-leader-card overview-leader-card--positive overview-leader-card--has-portrait"><div className="overview-leader-card-main"><div className="overview-leader-card-label"><span className="overview-leader-card-icon"><Icon name="bolt" size={15} /></span><span>{tr("Tehokkain peliaikaan nähden", "Most efficient per minute")}</span></div><div className="overview-leader-card-entity"><strong>{efficiencyLeader?.name ?? tr("Ladataan…", "Loading…")}</strong></div><b className="overview-leader-card-value">{efficiencyLeader ? `${overviewValue(playerEfficiencyPer40(efficiencyLeader))} Eff/40` : "—"}</b><small>{efficiencyLeader?.team ?? tr("Pelaajatiedot latautuvat", "Player data is loading")}</small></div><NeutralPortrait /></div>
+          <PaperLeaderCard
+            title={tr("Runkosarjan ykkönen", "Regular-season leader")}
+            playerName={winner?.name ?? tr("Ladataan…", "Loading…")}
+            value={winner ? `${winner.wins} ${tr("voittoa", "wins")}` : "—"}
+            team={winner ? `${overviewSignedIntegerValue(winner.pointsFor - winner.pointsAgainst)} ${tr("piste-ero", "point differential")}` : tr("Sijoitus muodostetaan", "Ranking is calculated")}
+            shaderColor="#54E08B33"
+            valueColor="#54E08B"
+            visual={<PaperTeamMarker teamName={winner?.name ?? "?"} status="winner" />}
+          />
+          <PaperLeaderCard
+            title={tr("Runkosarjan viimeinen", "Bottom of the regular season")}
+            playerName={lastPlace?.name ?? tr("Ladataan…", "Loading…")}
+            value={lastPlace ? `${lastPlace.losses} ${tr("tappiota", "losses")}` : "—"}
+            team={lastPlace ? `${overviewSignedIntegerValue(lastPlace.pointsFor - lastPlace.pointsAgainst)} ${tr("piste-ero", "point differential")}` : tr("Sijoitus muodostetaan", "Ranking is calculated")}
+            shaderColor="#FF756A33"
+            valueColor="#FF756A"
+            visual={<PaperTeamMarker teamName={lastPlace?.name ?? "?"} status="last" />}
+          />
+          <PaperLeaderCard
+            title={tr("Eniten pisteitä / ottelu", "Most points / game")}
+            playerName={ppgLeader?.name ?? tr("Ladataan…", "Loading…")}
+            value={ppgLeader ? `${overviewValue(playerPerGame(ppgLeader, "points"))} PPG` : "—"}
+            team={ppgLeader?.team ?? tr("Pelaajatiedot latautuvat", "Player data is loading")}
+            shaderColor="#6B49DE33"
+            valueColor="#6AC432"
+          />
+          <PaperLeaderCard
+            title={tr("Tehokkain peliaikaan nähden", "Most efficient per minute")}
+            playerName={efficiencyLeader?.name ?? tr("Ladataan…", "Loading…")}
+            value={efficiencyLeader ? `${overviewValue(playerEfficiencyPer40(efficiencyLeader))} Eff/40` : "—"}
+            team={efficiencyLeader?.team ?? tr("Pelaajatiedot latautuvat", "Player data is loading")}
+            shaderColor="#54E08B33"
+            valueColor="#54E08B"
+          />
         </div>
       </section>
 
-      <section className="overview-layout">
+      <OverviewScratchpad />
+
+      <section id="overview-teams" className="overview-layout overview-section-anchor">
         <div className="panel overview-table-panel">
           <div className="panel-heading panel-heading--plain"><div><h3>{tr("Joukkueiden tehokkuus", "Team efficiency")}</h3><p className="panel-subcopy">{tr("Net Rating yhdistää hyökkäyksen ja puolustuksen samaan vertailuun.", "Net Rating combines offense and defense in one comparison.")}</p></div><button className="outline-button small" onClick={onOpenTeams}>{tr("Joukkueprofiilit", "Team profiles")} <ArrowUpRight /></button></div>
           <div className="overview-table-wrap">
@@ -718,6 +888,9 @@ function OverviewView({ onOpenTeams }: { onOpenTeams: () => void }) {
           <div className="control-readout"><strong>{leadingTeam.name} {overviewSignedValue(leadingTeam.metrics.net_rating)} · {trailingTeam.name} {overviewSignedValue(trailingTeam.metrics.net_rating)}</strong><p>{tr("Net Rating on tässä hallinnan suuntaa-antava proxy: se tiivistää hyökkäyksen ja puolustuksen piste-eron arvioitua pallonhallintaa kohden. Se ei ole Basket.fi:n oma tilastokenttä.", "Net Rating is a directional proxy here: it summarizes scoring margin per estimated possession. It is not an official Basket.fi field.")}</p></div>
         </div>
       </section>
+
+      <div id="team-style-map" className="overview-section-anchor"><TeamStyleMap teams={seasonData.aggregate.teams} /></div>
+      <div id="team-game-split" className="overview-section-anchor"><TeamGameSplit matches={seasonMatches} /></div>
 
       <div className="overview-coverage"><span><strong>{tr("Aineisto", "Dataset")}</strong><span>{tr("tarkistettu runkosarjan box score -aineisto", "verified regular-season box score data")}</span></span><span><strong>Basket.fi</strong><span>{tr("päivämäärät tuloslistalta · tilastot ottelusivuilta", "dates from results page · stats from game pages")}</span></span></div>
     </>
@@ -1082,7 +1255,7 @@ function App() {
   const isMatchDetail = view === "story" || view === "player-detail" || view === "data";
 
   return (
-    <div className="app-shell">
+    <div className={`app-shell app-shell--${view}`}>
       <aside className="sidebar">
         <div className="brand-lockup">
           <Mark />
@@ -1123,7 +1296,7 @@ function App() {
         </button>)}
       </nav>
 
-      <main className="main-content">
+      <main className={`main-content main-content--${view}`}>
         <header className="topbar">
           <div className="mobile-brand" aria-label="KorisIQ"><Mark /><span>Koris<span>IQ</span></span></div>
           <div className="breadcrumbs">
@@ -1138,8 +1311,10 @@ function App() {
           </div>
         </header>
 
-        <div className="page-content">
-          <section className={`intro-row ${view === "overview" ? "intro-row--overview" : ""}`}>
+        <div className={view === "overview" ? "page-with-outline" : undefined}>
+          {view === "overview" && <OverviewSectionLinks tr={tr} />}
+          <div className="page-content">
+          <section className={`intro-row intro-row--${view} ${view === "overview" ? "intro-row--overview" : ""}`}>
             <div>
             <h1>{view === "overview" ? tr("Yleiskatsaus", "Overview") : view === "teams" ? tr("Joukkueen peliprofiili", "Team profile") : view === "season" ? tr("Kausitrendit", "Season trends") : view === "matches" ? tr("Ottelut", "Games") : view === "players" ? tr("Pelaajat", "Players") : tr("Pelin tarina", "Game story")}</h1>
               <p className="intro-copy">{view === "overview" ? tr("Naisten Korisliigan kauden luvut, tehokkuus ja peliprofiili yhdellä sivulla.", "Women's Korisliiga season metrics, efficiency, and playing profile in one view.") : view === "teams" ? tr("Tutki joukkueen heittovalintoja ja tehokkuutta suhteessa sarjan tasoon.", "Explore a team's shot selection and efficiency relative to the league.") : view === "season" ? tr("Seuraa, miten suomalaisen koripallon heittoprofiili ja pelin tehokkuus muuttuvat kausien välillä.", "Track how shot profiles and efficiency change across Finnish basketball seasons.") : view === "matches" ? tr("Selaa kauden tarkistettuja box score -otteluita ja avaa yksittäisen ottelun analyysi.", "Browse verified season box scores and open an individual game analysis.") : view === "players" ? tr("Tutki koko kauden pelaajapoolia, rooleja ja tehokkuutta suhteessa peliaikaan.", "Explore the full player pool, roles, and efficiency relative to playing time.") : tr("Näe mitä tapahtui, milloin peli kääntyi ja mitä datasta voidaan oikeasti päätellä.", "See what happened, when the game shifted, and what the data can actually tell us.")}</p>
@@ -1147,7 +1322,7 @@ function App() {
             {view === "overview" ? <OverviewContext onOpenMatches={() => setView("matches")} /> : isMatchDetail ? <button className="outline-button" onClick={() => setView("matches")}>{tr("Palaa otteluihin", "Back to games")} <Icon name="chevron" size={13} /></button> : null}
           </section>
 
-          {view === "overview" ? <OverviewView onOpenTeams={() => setView("teams")} /> : view === "players" ? <PlayersView /> : view === "teams" ? <TeamProfiles /> : view === "season" ? <SeasonView /> : view === "matches" ? <MatchesView onOpenMatch={(id) => { setSelectedMatchId(id); setView("story"); }} /> : <>
+          {view === "overview" ? <OverviewView onOpenTeams={() => setView("teams")} /> : view === "players" ? <PlayersView /> : view === "teams" ? <TeamProfiles onOpenMatch={(id) => { setSelectedMatchId(id); setView("story"); }} /> : view === "season" ? <SeasonView /> : view === "matches" ? <MatchesView onOpenMatch={(id) => { setSelectedMatchId(id); setView("story"); }} /> : <>
           <section className="match-hero panel">
             <div className="match-hero-top">
               <div className="match-meta"><span>{tr(activeMatch.competition, "Women's Korisliiga")}</span><span className="meta-separator">·</span><span>{activeMatch.season}</span></div>
@@ -1243,6 +1418,7 @@ function App() {
 
           {view === "data" && <section className="panel detail-panel"><div className="panel-heading"><div><span className="section-kicker">{tr("Datan alkuperä", "Data source")}</span><h3>{tr("Ottelun datan saatavuus", "Game data availability")}</h3></div><span className="source-id">{tr("Lähde-ID", "Source ID")} {activeMatch.sourceMatchId}</span></div><p className="detail-intro">{tr("KorisIQ ei täytä puuttuvia arvoja nollilla. Jokainen analyysi rakentuu sen päälle, mitä lähde oikeasti palauttaa.", "KorisIQ does not fill missing values with zeros. Each analysis is built on what the source actually returns.")}</p><div className="availability-list">{displayedAvailability.map((item) => <div className="availability-row" key={item.label}><span className={`availability-icon ${item.tone}`}>{item.tone === "ready" ? "✓" : item.tone === "warning" ? "!" : "–"}</span><div><strong>{item.label}</strong><span>{item.detail}</span></div><em className={item.tone}>{item.value}</em></div>)}</div><div className="data-footnote"><span className="status-dot" /> {tr("Lähde", "Source")}: Basket.fi / statistics · {tr("haettu", "retrieved")} 15.9.2026 · {tr("historiallinen näyte", "historical sample")}</div></section>}
           </>}
+          </div>
         </div>
       </main>
     </div>

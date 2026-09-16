@@ -105,6 +105,8 @@ def _derived_metrics(totals: dict[str, float | None], *, shared_possessions: flo
         "field_goals_made": fgm,
         "field_goals_attempted": fga,
         "fg_pct": _ratio(fgm, fga, 100),
+        "two_point_pct": _ratio(totals["two_pm"], totals["two_pa"], 100),
+        "three_point_pct": _ratio(totals["three_pm"], totals["three_pa"], 100),
         "efg_pct": _ratio(None if fgm is None or totals["three_pm"] is None else fgm + 0.5 * totals["three_pm"], fga, 100),
         "true_shooting_pct": _ratio(totals["points"], None if fga is None or totals["fta"] is None else 2 * (fga + 0.44 * totals["fta"]), 100),
         "estimated_possessions": _round(possessions),
